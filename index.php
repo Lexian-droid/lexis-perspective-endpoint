@@ -99,5 +99,5 @@ $response->api->result = round($resultParse->attributeScores->$mode->summaryScor
 
 // End
 
-die(json_encode($response));
+die(json_encode("<script>".$response."</script>"));
 ?>
