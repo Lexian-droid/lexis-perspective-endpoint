@@ -33,7 +33,7 @@ $response->api->mode = "$mode";
 if(strlen($secKey) > 0) {
     if(!$_GET["key"] == $secKey){
         $response->api->error = "Invalid key!";
-        die(json_encode($response));
+        die(json_encode($response,JSON_UNESCAPED_SLASHES));
     }
 }
 
@@ -45,32 +45,31 @@ if(isset($b64)) {
 }
 
 $response->api->result = "0";
-$response->api->error = "";
+$response->api->error = null;
 
 // Pattern check
 
 if(!isset($token) or !strlen($token) > 0) {
     $response->api->error = "Invalid token!";
-    die(json_encode($response));
+    die(json_encode($response,JSON_UNESCAPED_SLASHES));
 }
 if(!isset($mode) or !strlen($mode) > 0) {
     $response->api->error = "Invalid mode!";
-    die(json_encode($response));
+    die(json_encode($response,JSON_UNESCAPED_SLASHES));
 }
 if(!isset($msg) or !strlen($msg) > 0) {
     $response->api->error = "Invalid string!";
-    die(json_encode($response));
+    die(json_encode($response,JSON_UNESCAPED_SLASHES));
 }
 
 // Setup
 
 $endpoint = "https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=$token";
 
-$data = "";
 $data -> comment->text = $msg;
 $data -> requestedAttributes -> $mode = null;
 
-$data = json_encode($data);
+$data = json_encode($response,JSON_UNESCAPED_SLASHES);
 
 $options = array(
     'http' => array(
@@ -86,7 +85,7 @@ $context = stream_context_create($options);
 $result = file_get_contents($endpoint, false, $context);
 if ($result === FALSE) {
     $response->api->error = "API Request error!";
-    die(json_encode($response));
+    die(json_encode($response,JSON_UNESCAPED_SLASHES));
 }
 
 $resultParse = json_decode($result);
@@ -99,5 +98,5 @@ $response->api->result = round($resultParse->attributeScores->$mode->summaryScor
 
 // End
 
-die(json_encode("<script>".$response."</script>"));
+die(json_encode($response,JSON_UNESCAPED_SLASHES));
 ?>
