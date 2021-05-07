@@ -1,4 +1,4 @@
-    <?php
+<?php
 error_reporting(0);
 
 // Load config
@@ -18,8 +18,9 @@ if($_GET["b64"] == 1) {
 
 // output setup
 
-// ⬇ You may not edit these responses ⬇
 $response = "";
+
+// ⬇ You may not edit these responses ⬇
 $response->info->title = "Lexi's Perspective Endpoint";
 $response->info->version = "1.0.0";
 $response->info->about = "This is a custom endpoint handler for Google's PerspectAPI.";
