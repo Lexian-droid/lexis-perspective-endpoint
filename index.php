@@ -18,15 +18,15 @@ if($_GET["b64"] == 1) {
 
 // output setup
 
-$response = "";
-
 // ⬇ You may not edit these responses ⬇
+$response = "";
 $response->info->title = "Lexi's Perspective Endpoint";
 $response->info->version = "1.0.0";
 $response->info->about = "This is a custom endpoint handler for Google's PerspectAPI.";
 $response->info->tos = "By using this API you agree to Google's ToS.";
 $response->info->website = "https://www.timewisely.net";
 $response->info->repo = "https://github.com/Lexian-droid/lexis-perspective-endpoint";
+$response->info->license = "GNU General Public License v3.0";
 // ⬆ You may not edit these responses ⬆
 
 $response->api->mode = "$mode";
