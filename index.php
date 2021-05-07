@@ -70,7 +70,7 @@ $endpoint = "https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?ke
 $data -> comment->text = $msg;
 $data -> requestedAttributes -> $mode = null;
 
-$data = json_encode($response,JSON_UNESCAPED_SLASHES);
+$data = json_encode($data);
 
 $options = array(
     'http' => array(
