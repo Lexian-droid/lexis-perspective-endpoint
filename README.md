@@ -32,5 +32,7 @@ Here is an example query.
 As you can see, it returned a "Result" this is your percentage of probability.
 You are free to modify everything about the API, **except what is explicitly told not to be edited.**
 
+If you want to try out our API, please check out [This Demo.](https://lexperspective.timewisely.net)
+
 This is my first github repo, so i hope you enjoy it.
 ~Lex
