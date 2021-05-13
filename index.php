@@ -1,4 +1,5 @@
 <?php
+// Due to the nature of this script, it is best to disable Error reporting.
 error_reporting(0);
 
 // Load config
